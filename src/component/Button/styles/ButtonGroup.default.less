@@ -1,0 +1,30 @@
+.ow-btn-group {
+  display: inline-block;
+
+  .ow-btn:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 10px;
+  }
+
+  .ow-btn:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 10px;
+  }
+
+  .ow-btn:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .ow-btn:not(:last-child) {
+    margin-right: -1px;
+  }
+
+  .ow-btn {
+    float: left;
+    position: relative;
+  }
+}

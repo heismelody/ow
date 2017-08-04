@@ -1,17 +1,14 @@
 import './App.css'
 
 import React from 'react'
+import { Button } from './component/Button';
+import { Fold } from './component/Fold';
 
 let App = React.createClass({
   render() {
-    return <div className="App">
-      <div className="App-heading App-flex">
-        <h2>Welcome to <span className="App-react">React</span></h2>
-      </div>
-      <div className="App-instructions App-flex">
-        <img className="App-logo" src={require('./react.svg')}/>
-        <p>Edit <code>src/App.js</code> and save to hot reload your changes.</p>
-      </div>
+    return <div style={{margin: '100px'}}>
+
+      <Fold/>
     </div>
   }
 })

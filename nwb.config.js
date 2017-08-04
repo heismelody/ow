@@ -1,3 +1,7 @@
 module.exports = {
-  type: 'react-app'
+  type: 'react-app',
+  webpack: {
+	  aliases: {
+		  'theme': path.resolve('src/assets/theme'),
+  }
 }
