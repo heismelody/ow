@@ -1,7 +1,7 @@
-import owFontIcon from './FontIcon.vue';
-import owSvgIcon from './SvgIcon.vue';
+import FontIcon from './FontIcon';
+import SvgIcon from './SvgIcon';
 
 export {
-  owFontIcon,
-  owSvgIcon,
+	FontIcon,
+	SvgIcon,
 };
