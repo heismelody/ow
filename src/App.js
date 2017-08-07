@@ -6,6 +6,7 @@ import { Fold } from './component/Fold';
 import { Avatar } from './component/Avatar';
 import { SvgIcon } from './component/Icon';
 import { Card } from './component/Card';
+import TabTest from './component/Tabs/TabTest';
 
 import avat from '../tests/9329094.jpeg';
 
@@ -16,7 +17,8 @@ let App = React.createClass({
       <Avatar src={avat} color='#CCC'/>
       <Fold/>
 
-      <Card style={{height: 100, width: 100}}/>
+      <Card style={{height: 200, width: 400}}/>
+      <TabTest/>
     </div>
   }
 })
