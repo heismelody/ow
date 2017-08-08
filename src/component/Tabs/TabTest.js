@@ -24,9 +24,11 @@ export default class TabTest extends React.Component {
 
 		return (
 			<Tabs>
-				<TabPanel title='tab 1' key="1">first</TabPanel>
-				<TabPanel title='tab 2' key="2">second</TabPanel>
-				<TabPanel title='tab 3' key="3">third</TabPanel>
+				<TabPanel title='tab 1' key={1}>first</TabPanel>
+				<TabPanel title='tab 2' key={2}>second</TabPanel>
+				<TabPanel title='tab 3' key={3}>third</TabPanel>
+				<TabPanel title='tab 3' key={4}>third</TabPanel>
+				<TabPanel title='tab 3' key={5}>third</TabPanel>
 			</Tabs>
 		);
 	}

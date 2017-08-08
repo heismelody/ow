@@ -1,10 +1,14 @@
 import React from 'react';
 import ProTypes from 'prop-types';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 
 import TabPanel from './TabPanel';
+import TabBar from './TabBar';
 
 require('./styles/Tabs.default.less');
 
+@observer
 export default class Tabs extends React.Component {
 	static propTypes = {
 		children: function (props, propName, componentName) {
@@ -15,7 +19,7 @@ export default class Tabs extends React.Component {
 					throw new Error('`' + componentName + '` children should be of type `TabPanel`.');
 				}
 			});
-		}
+		},
 	};
 
 	static defaultProps = {
@@ -33,6 +37,28 @@ export default class Tabs extends React.Component {
 		return tabs;
 	}
 
+	getTabBarItems() {
+		const tabBarItems = {};
+
+		React.Children.forEach(this.props.children, child => {
+			tabBarItems[child.key] = child.props.title;
+		});
+
+		return tabBarItems;
+	}
+
+	getActiveKey() {
+
+	}
+
+	getDisabledKey() {
+
+	}
+
+	onActiveTabChange = e => {
+
+	}
+
 	render() {
 		const {
 			children,
@@ -40,8 +66,16 @@ export default class Tabs extends React.Component {
 			...other
 		} = this.props;
 
+		// const tabBarItems = {};
+
 		return (
 			<div {...other} className='ow-tabs'>
+				<TabBar
+					active={1}
+					disabled={[1,2]}
+				  items={this.getTabBarItems()}
+				/>
+
 				{/*<div>*/}
 					{/*{tabBars}*/}
 				{/*</div>*/}

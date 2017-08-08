@@ -5,6 +5,7 @@ require('./styles/Tabs.default.less');
 
 export default class TabPanel extends React.Component {
 	static propTypes = {
+		title: ProTypes.node.isRequired,
 	};
 
 	static defaultProps = {
