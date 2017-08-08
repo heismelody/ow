@@ -8,10 +8,7 @@ export default class TabContent extends React.Component {
 	};
 
 	static defaultProps = {
-		size: 'md',
-		color: '#FFF'
 	};
-
 
 	render() {
 		const {
@@ -21,11 +18,11 @@ export default class TabContent extends React.Component {
 			...other
 		} = this.props;
 
-		const tabContent = children.map((child) => {
-			if(child.key == active) {
-				return child;
-			}
-		});
+		const tabContent = children.map((child) =>
+			React.cloneElement(child, {
+				'aria-hidden' : (child.key != active)
+			})
+		);
 		return (
 			<div
 				{...other}
