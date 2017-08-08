@@ -5,11 +5,14 @@ import { observer } from 'mobx-react';
 
 import TabPanel from './TabPanel';
 import TabBar from './TabBar';
+import TabContent from "./TabContent";
 
 require('./styles/Tabs.default.less');
 
 @observer
 export default class Tabs extends React.Component {
+	@observable active = 1;
+
 	static propTypes = {
 		children: function (props, propName, componentName) {
 			const prop = props[propName];
@@ -47,6 +50,10 @@ export default class Tabs extends React.Component {
 		return tabBarItems;
 	}
 
+	getTabContents() {
+
+	}
+
 	getActiveKey() {
 
 	}
@@ -55,9 +62,9 @@ export default class Tabs extends React.Component {
 
 	}
 
-	onActiveTabChange = e => {
-
-	}
+	onActiveTabChange = key => {
+		this.active = parseInt(key);
+	};
 
 	render() {
 		const {
@@ -71,17 +78,17 @@ export default class Tabs extends React.Component {
 		return (
 			<div {...other} className='ow-tabs'>
 				<TabBar
-					active={1}
+					active={this.active}
 					disabled={[1,2]}
 				  items={this.getTabBarItems()}
+					onActiveTabChange={this.onActiveTabChange}
 				/>
 
-				{/*<div>*/}
-					{/*{tabBars}*/}
-				{/*</div>*/}
-				{/*<div>*/}
-					{/*{tabContents}*/}
-				{/*</div>*/}
+				<TabContent
+					active={this.active}
+				>
+					{children}
+				</TabContent>
 			</div>
 		);
 	}

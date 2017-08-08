@@ -13,11 +13,16 @@ export default class TabBar extends React.Component {
 	static defaultProps = {
 	};
 
+	onActiveTabChange = e => {
+		this.props.onActiveTabChange(e.target.value);
+	};
+
 	render() {
 		const {
 			active,
 			disabled,
 			items,
+			onActiveTabChange,
 
 			...other
 		} = this.props;
@@ -30,7 +35,9 @@ export default class TabBar extends React.Component {
 
 			return <li
 				key={key}
+				value={key}
 				{...itemProps}
+				onClick={this.onActiveTabChange}
 			>
 				{items[key]}
 			</li>

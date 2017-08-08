@@ -16,16 +16,21 @@ export default class TabContent extends React.Component {
 	render() {
 		const {
 			children,
+			active,
 
 			...other
 		} = this.props;
 
+		const tabContent = children.map((child) => {
+			if(child.key == active) {
+				return child;
+			}
+		});
 		return (
 			<div
 				{...other}
-				className='ow-tabs'
 			>
-				{children}
+				{tabContent}
 			</div>
 		);
 	}

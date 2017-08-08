@@ -13,12 +13,13 @@ import avat from '../tests/9329094.jpeg';
 let App = React.createClass({
   render() {
     return <div style={{margin: '100px'}}>
-      <SvgIcon name='arrowLeft'/>
-      <Avatar src={avat} color='#CCC'/>
-      <Fold/>
+      {/*<SvgIcon name='arrowLeft'/>*/}
+      {/*<Avatar src={avat} color='#CCC'/>*/}
+      {/*<Fold/>*/}
 
-      <Card style={{height: 200, width: 400}}/>
-      <TabTest/>
+      <Card style={{height: 200, width: 400, backgroundColor: '#423e3e'}}>
+        <TabTest/>
+      </Card>
     </div>
   }
 })
