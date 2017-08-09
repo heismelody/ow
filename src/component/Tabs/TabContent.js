@@ -26,6 +26,7 @@ export default class TabContent extends React.Component {
 		return (
 			<div
 				{...other}
+				className='ow-tab-body'
 			>
 				{tabContent}
 			</div>

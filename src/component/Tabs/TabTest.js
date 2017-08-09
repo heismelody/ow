@@ -23,11 +23,11 @@ export default class TabTest extends React.Component {
 		} = this.props;
 
 		return (
-			<Tabs>
-				<TabPanel title='tab 1' key={1}>first</TabPanel>
-				<TabPanel title='tab 2' key={2}>second</TabPanel>
-				<TabPanel title='tab 3' key={3}>third</TabPanel>
-				<TabPanel title='tab 4' key={4}>four</TabPanel>
+			<Tabs style={{height: '200px'}}>
+				<TabPanel title='TAB A' key={1}>TAB A</TabPanel>
+				<TabPanel title='TAB B' key={2}>TAB B</TabPanel>
+				<TabPanel title='TAB C' key={3}>TAB C</TabPanel>
+				<TabPanel title='TAB D' key={4}>TAB D</TabPanel>
 			</Tabs>
 		);
 	}
