@@ -1,8 +1,6 @@
 import React from 'react';
 import ProTypes from 'prop-types';
 
-require('./styles/Tabs.default.less');
-
 export default class TabContent extends React.Component {
 	static propTypes = {
 	};

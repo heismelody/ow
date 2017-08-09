@@ -7,8 +7,6 @@ import TabPanel from './TabPanel';
 import TabBar from './TabBar';
 import TabContent from "./TabContent";
 
-require('./styles/Tabs.default.less');
-
 @observer
 export default class Tabs extends React.Component {
 	@observable active = 1;
@@ -23,11 +21,16 @@ export default class Tabs extends React.Component {
 				}
 			});
 		},
+		position: ProTypes.oneOf([
+			'top',
+			'bottom',
+			'left',
+			'right',
+		]),
 	};
 
 	static defaultProps = {
-		size: 'md',
-		color: '#FFF'
+		position: 'top'
 	};
 
 	getTabs() {
@@ -69,14 +72,17 @@ export default class Tabs extends React.Component {
 	render() {
 		const {
 			children,
+			position,
 
 			...other
 		} = this.props;
 
+		const className = `ow-tabs ow-tabs-${position}`;
+
 		// const tabBarItems = {};
 
 		return (
-			<div {...other} className='ow-tabs'>
+			<div {...other} className={className}>
 				<TabBar
 					active={this.active}
 					disabled={[1,2]}

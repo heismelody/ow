@@ -3,6 +3,8 @@
 @tabbar-height: 30px;
 
 .ow-tabbar {
+  height: 30px;
+  display: inline-block;
   position: relative;
   margin: 0;
   padding: 0;
@@ -25,9 +27,6 @@
     position: relative;
     top: 4px;
     background-color: rgb(229, 232, 236);
-    -webkit-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
-    -moz-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
-    box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
 
     float: left;
     width: 100px;
@@ -39,6 +38,12 @@
     transition: all 0.3s ease-in-out;
     &:not(:last-child) {
        border-right: 1px solid fade(@color-gray-light, 15%);
+    }
+
+    &:not(.active) {
+      -webkit-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+      -moz-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+      box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
     }
 
     &.active {

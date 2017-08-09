@@ -16,10 +16,9 @@ let App = React.createClass({
       {/*<SvgIcon name='arrowLeft'/>*/}
       {/*<Avatar src={avat} color='#CCC'/>*/}
       {/*<Fold/>*/}
-
-      <Card style={{height: 200}}>
-        <TabTest/>
-      </Card>
+        <Card style={{height: 200}}>
+          <TabTest/>
+        </Card>
     </div>
   }
 })

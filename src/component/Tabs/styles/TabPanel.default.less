@@ -1,3 +1,25 @@
+//------------ Mixin start ----------
+.mixin-tabs-body-position(@position) when (@position = 'top'){
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.mixin-tabs-body-position(@position) when (@position = 'bottom'){
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.mixin-tabs-body-position(@position) when (@position = 'left'){
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.mixin-tabs-body-position(@position) when (@position = 'right'){
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+//------------- Mixin end ------------
+
 .ow-panel[aria-hidden="true"] {
   display: none;
   overflow: visible;
@@ -10,4 +32,27 @@
 
 .ow-panel {
   width: 100%;
+}
+
+.ow-tab-body {
+  background-color: #fff;
+  height: 200px;
+  width: 373px;
+  padding: 15px;
+}
+
+.ow-tabs-left .ow-tab-body{
+  .mixin-tabs-body-position('left');
+}
+
+.ow-tabs-right .ow-tab-body{
+  .mixin-tabs-body-position('right');
+}
+
+.ow-tabs-top .ow-tab-body{
+  .mixin-tabs-body-position('top');
+}
+
+.ow-tabs-bottom .ow-tab-body{
+  .mixin-tabs-body-position('bottom');
 }
