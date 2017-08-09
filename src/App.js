@@ -17,7 +17,7 @@ let App = React.createClass({
       {/*<Avatar src={avat} color='#CCC'/>*/}
       {/*<Fold/>*/}
 
-      <Card style={{height: 200, width: 400}}>
+      <Card style={{height: 200}}>
         <TabTest/>
       </Card>
     </div>

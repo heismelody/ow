@@ -3,34 +3,51 @@
 @tabbar-height: 30px;
 
 .ow-tabbar {
-  height: @tabbar-height;
+  position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: fade(@color-gray-light, 70%);
-  display: flex;
   font-size: 10px;
   font-weight: bold;
   text-align: center;
-  letter-spacing: 1px;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(229, 232, 236, 0.65);
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  -webkit-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
-  -moz-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
-  box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+  color: fade(@color-gray-light, 70%);
+
+  li:first-child{
+    border-top-left-radius: 5px;
+  }
+
+  li:last-child{
+    border-top-right-radius: 5px;
+  }
 
   li {
+    display: block;
+    position: relative;
+    top: 4px;
+    background-color: rgb(229, 232, 236);
+    -webkit-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+    -moz-box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+    box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
+
+    float: left;
+    width: 100px;
     height: 100%;
     margin: 0;
     padding: 0;
     cursor: pointer;
-    flex: auto;
     line-height: @tabbar-height;
+    transition: all 0.3s ease-in-out;
     &:not(:last-child) {
        border-right: 1px solid fade(@color-gray-light, 15%);
+    }
+
+    &.active {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      top: 0;
+      color: #000;
+      padding-top: 4px;
+      background: #fff;
     }
   }
 }
