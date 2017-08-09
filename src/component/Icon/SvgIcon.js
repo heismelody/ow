@@ -11,6 +11,7 @@ import menuBook from './svg/book.svg';
 import menuPaper from './svg/file-o.svg';
 import menuTags from './svg/tags.svg';
 import down from './svg/caret-down.svg';
+import chevronRight from './svg/lnr-chevron-right.svg';
 
 require('./styles/SvgIcon.default.less');
 
@@ -24,8 +25,9 @@ const icons = {
 	menuBook,
 	menuPaper,
 	menuTags,
-	down
-}
+	down,
+	chevronRight,
+};
 
 export default class SvgIcon extends React.Component {
 	static propTypes = {

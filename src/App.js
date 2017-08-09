@@ -15,10 +15,17 @@ let App = React.createClass({
     return <div style={{margin: '100px'}}>
       {/*<SvgIcon name='arrowLeft'/>*/}
       {/*<Avatar src={avat} color='#CCC'/>*/}
-      {/*<Fold/>*/}
-        <Card style={{height: 200}}>
-          <TabTest/>
-        </Card>
+      <Fold
+        title='How do i mesdfsdfsd'
+        content={
+          <div>
+            dfsdfsfsdfds
+          </div>
+        }
+      />
+        {/*<Card style={{height: 200}}>*/}
+          {/*<TabTest/>*/}
+        {/*</Card>*/}
     </div>
   }
 })

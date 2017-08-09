@@ -3,6 +3,8 @@ import ProTypes from 'prop-types';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 
+import { SvgIcon } from '../Icon';
+
 require('./styles/Fold.default.less');
 
 @observer
@@ -14,8 +16,8 @@ export default class Fold extends React.Component {
 		title: ProTypes.string,
 		titleElement: ProTypes.node,
 		titleStyle: ProTypes.object,
-		body: ProTypes.node,
-		bodyStyle: ProTypes.object,
+		content: ProTypes.node,
+		contentStyle: ProTypes.object,
 		iconElement: ProTypes.node,
 		iconStyle: ProTypes.object,
 	};
@@ -23,26 +25,44 @@ export default class Fold extends React.Component {
 	static defaultProps = {
 	};
 
-	constructor() {
-		super();
-	}
+	handleOpen  = e => {
+		console.warn(this.open);
+		this.open = (!this.open);
+	};
 
 	render() {
 		const {
-			disabled,
+			title,
+			content,
 
 			...other
 		} = this.props;
 
 		return (
 			<div className="ow-fold">
-				We recommend that you get to know React before diving i ？
-
 				{
-					open ?
-					<div className="ow-fold-open"></div>
+					this.open ?
+					<div className="ow-fold-open">
+						{content}
+						<SvgIcon
+							onClick={this.handleOpen}
+							name='chevronRight'
+							color='#fff'
+							className={this.open ? 'opened': ''}
+						/>
+					</div>
 					:
-					<div className="ow-fold-close"></div>
+					<div className="ow-fold-close">
+						{title}
+						<SvgIcon
+							onClick={this.handleOpen}
+							name='chevronRight'
+							color='#fff'
+							className={this.open ? 'opened': ''}
+						/>
+
+						{content}
+					</div>
 				}
 			</div>
 		);
