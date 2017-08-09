@@ -22,8 +22,8 @@ export default class TabTest extends React.Component {
 
 		return (
 			<div>
-				<div className="test" style={{margin: '100px'}}>
-					<Tabs style={{height: '200px'}}>
+				<div className="test" style={{margin: '20px', display: 'inline-block'}}>
+					<Tabs>
 						<TabPanel title='TAB A' key={1}>TAB A</TabPanel>
 						<TabPanel title='TAB B' key={2}>TAB B</TabPanel>
 						<TabPanel title='TAB C' key={3}>TAB C</TabPanel>
@@ -31,8 +31,8 @@ export default class TabTest extends React.Component {
 					</Tabs>
 				</div>
 
-				<div className="test" style={{margin: '100px'}}>
-					<Tabs style={{height: '200px'}} position="left">
+				<div className="test" style={{margin: '20px', display: 'inline-block'}}>
+					<Tabs position="left">
 						<TabPanel title='TAB A' key={1}>TAB A</TabPanel>
 						<TabPanel title='TAB B' key={2}>TAB B</TabPanel>
 						<TabPanel title='TAB C' key={3}>TAB C</TabPanel>
@@ -40,8 +40,8 @@ export default class TabTest extends React.Component {
 					</Tabs>
 				</div>
 
-				<div className="test" style={{margin: '100px'}}>
-					<Tabs style={{height: '200px'}} position="right">
+				<div className="test" style={{margin: '20px', display: 'inline-block'}}>
+					<Tabs position="right">
 						<TabPanel title='TAB A' key={1}>TAB A</TabPanel>
 						<TabPanel title='TAB B' key={2}>TAB B</TabPanel>
 						<TabPanel title='TAB C' key={3}>TAB C</TabPanel>
@@ -49,8 +49,8 @@ export default class TabTest extends React.Component {
 					</Tabs>
 				</div>
 
-				<div className="test" style={{margin: '100px'}}>
-					<Tabs style={{height: '200px'}} position="bottom">
+				<div className="test" style={{margin: '20px', display: 'inline-block'}}>
+					<Tabs position="bottom">
 						<TabPanel title='TAB A' key={1}>TAB A</TabPanel>
 						<TabPanel title='TAB B' key={2}>TAB B</TabPanel>
 						<TabPanel title='TAB C' key={3}>TAB C</TabPanel>

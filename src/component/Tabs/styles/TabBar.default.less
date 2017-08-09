@@ -1,18 +1,9 @@
 @import "../../../assets/theme/base.default.less";
 
-@tabbar-height: 30px;
-
-.ow-tabbar {
+//------------ Mixin start ----------
+.mixin-tabbar-position(@position) when (@position = 'top'){
   height: 30px;
-  display: inline-block;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 10px;
-  font-weight: bold;
-  text-align: center;
-  color: fade(@color-gray-light, 70%);
+  line-height: 30px;
 
   li:first-child{
     border-top-left-radius: 5px;
@@ -23,21 +14,14 @@
   }
 
   li {
-    display: block;
-    position: relative;
     top: 4px;
-    background-color: rgb(229, 232, 236);
-
     float: left;
-    width: 100px;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    line-height: @tabbar-height;
-    transition: all 0.3s ease-in-out;
-    &:not(:last-child) {
-       border-right: 1px solid fade(@color-gray-light, 15%);
+
+    &.active {
+      top: 0;
+      padding-top: 4px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
 
     &:not(.active) {
@@ -46,12 +30,159 @@
       box-shadow: inset 0px -5px 5px 0px rgba(218, 218, 218, 0.52);
     }
 
+    &:not(:last-child) {
+      border-right: 1px solid fade(@color-gray-light, 15%);
+    }
+  }
+}
+
+.mixin-tabbar-position(@position) when (@position = 'bottom'){
+  height: 30px;
+  line-height: 30px;
+
+  li:first-child{
+    border-bottom-left-radius: 5px;
+  }
+
+  li:last-child{
+    border-bottom-right-radius: 5px;
+  }
+
+  li {
+    float: left;
+    top: 0;
+
     &.active {
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
       top: 0;
-      color: #000;
       padding-top: 4px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &:not(.active) {
+      -webkit-box-shadow: inset 0px 5px 5px 0px rgba(218, 218, 218, 0.52);
+      -moz-box-shadow: inset 0px 5px 5px 0px rgba(218, 218, 218, 0.52);
+      box-shadow: inset 0px 5px 5px 0px rgba(218, 218, 218, 0.52);
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid fade(@color-gray-light, 15%);
+    }
+  }
+}
+
+.mixin-tabbar-position(@position) when (@position = 'left'){
+  float: left;
+  height: 40px;
+  line-height: 40px;
+
+  li:first-child{
+    border-top-left-radius: 5px;
+  }
+
+  li:last-child{
+    border-bottom-left-radius: 5px;
+  }
+
+  li {
+    left: 4px;
+    &.active {
+      left: 0;
+      padding-left: 4px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:not(.active) {
+      -webkit-box-shadow: inset -5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+      -moz-box-shadow: inset -5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+      box-shadow: inset -5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid fade(@color-gray-light, 15%);
+    }
+  }
+}
+
+.mixin-tabbar-position(@position) when (@position = 'right'){
+  float: right;
+  height: 40px;
+  line-height: 40px;
+
+  li:first-child{
+    border-top-right-radius: 5px;
+  }
+
+  li:last-child{
+    border-bottom-right-radius: 5px;
+  }
+
+  li {
+    &.active {
+      right: 0;
+      padding-right: 4px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &:not(.active) {
+      -webkit-box-shadow: inset 5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+      -moz-box-shadow: inset 5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+      box-shadow: inset 5px 0px 5px 0px rgba(218, 218, 218, 0.52);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid fade(@color-gray-light, 15%);
+    }
+  }
+}
+//------------- Mixin end ------------
+.ow-tabs-top .ow-tabbar{
+  .mixin-tabbar-position('top');
+}
+
+.ow-tabs-bottom .ow-tabbar{
+  .mixin-tabbar-position('bottom');
+}
+
+.ow-tabs-left .ow-tabbar{
+  .mixin-tabbar-position('left');
+}
+
+.ow-tabs-right .ow-tabbar{
+  .mixin-tabbar-position('right');
+}
+
+.ow-tabbar {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style: none;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  color: fade(@color-gray-light, 70%);
+
+  li {
+    display: block;
+    position: relative;
+    background-color: rgb(229, 232, 236);
+
+    width: 100px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+      color: #000;
       background: #fff;
     }
   }

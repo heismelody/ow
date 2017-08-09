@@ -83,18 +83,39 @@ export default class Tabs extends React.Component {
 
 		return (
 			<div {...other} className={className}>
-				<TabBar
-					active={this.active}
-					disabled={[1,2]}
-				  items={this.getTabBarItems()}
-					onActiveTabChange={this.onActiveTabChange}
-				/>
+				{
+					position === 'bottom' ?
+						<div>
+							<TabContent
+								active={this.active}
+							>
+								{children}
+							</TabContent>
 
-				<TabContent
-					active={this.active}
-				>
-					{children}
-				</TabContent>
+							<TabBar
+								active={this.active}
+								disabled={[1,2]}
+								items={this.getTabBarItems()}
+								onActiveTabChange={this.onActiveTabChange}
+							/>
+						</div>
+						:
+						<div>
+							<TabBar
+								active={this.active}
+								disabled={[1,2]}
+								items={this.getTabBarItems()}
+								onActiveTabChange={this.onActiveTabChange}
+							/>
+
+							<TabContent
+								active={this.active}
+							>
+								{children}
+							</TabContent>
+						</div>
+				}
+
 			</div>
 		);
 	}

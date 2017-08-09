@@ -12,11 +12,13 @@
 .mixin-tabs-body-position(@position) when (@position = 'left'){
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  margin-left: 104px;
 }
 
 .mixin-tabs-body-position(@position) when (@position = 'right'){
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  float: right;
 }
 //------------- Mixin end ------------
 
@@ -43,10 +45,12 @@
 
 .ow-tabs-left .ow-tab-body{
   .mixin-tabs-body-position('left');
+  height: 133px;
 }
 
 .ow-tabs-right .ow-tab-body{
   .mixin-tabs-body-position('right');
+  height: 133px;
 }
 
 .ow-tabs-top .ow-tab-body{
