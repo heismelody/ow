@@ -1,0 +1,105 @@
+@import '../../../assets/theme/base.default.less';
+
+.ow-collapse {
+  width: 350px;
+  height: 60px;
+  border: 1px solid @color-gray;
+  border-radius: 5px;
+  background-color: @color-black;
+  color: @color-white-light;
+
+  .ow-collapse-content-close {
+    float: left;
+    height: 100%;
+    max-width: 290px;
+    margin-left: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 62px;
+  }
+
+  .ow-collapse-content-open {
+    float: left;
+    height: 100%;
+    max-width: 290px;
+    margin-left: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 62px;
+  }
+
+  .ow-svg-icon {
+    cursor: pointer;
+    float: right;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    margin-right: 10px;
+
+    &.ow-collapse-icon-opened {
+      svg {
+        transition: .3s;
+        transform: rotate(90deg)
+      }
+
+      svg:hover {
+        fill: #000;
+      }
+    }
+
+    &:not(.ow-collapse-icon-opened) {
+      svg {
+        transition: .3s;
+        transform: rotate(0deg)
+      }
+
+      svg:hover {
+        fill: #fff;
+      }
+    }
+  }
+
+  will-change: height;
+  transition:
+          height .3s,
+          margin-top .3s,
+          background-color .7s;
+}
+
+.ow-collapse-open {
+  background-color: #fff;
+  height: 200px !important;
+
+  svg {
+    fill: #a2a2a2;
+  }
+
+  .ow-collapse-content-title {
+    color: #000;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .ow-collapse-content-main {
+    font-size: 11px;
+    color: #868585;
+    font-weight: 100;
+    line-height: 13px;
+    letter-spacing: 0.03em;
+    word-spacing: 0.1em;
+  }
+}
+
+.ow-collapse-close {
+  margin-top: 0;
+  height: 62px !important;
+}
+
+body {
+  background-color: @color-black;
+}

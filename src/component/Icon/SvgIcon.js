@@ -50,6 +50,7 @@ export default class SvgIcon extends React.Component {
 			name,
 			size,
 			color,
+			className,
 
 			...other
 		} = this.props;
@@ -57,7 +58,7 @@ export default class SvgIcon extends React.Component {
 		return (
 			<span
 				{...other}
-		    className={ size ? `ow-svg-icon-${size} ow-svg-icon` : 'ow-svg-icon' }
+		    className={ size ? `ow-svg-icon-${size} ow-svg-icon ${className}` : `ow-svg-icon ${className}` }
 		    style={{ fill: color }}
 				dangerouslySetInnerHTML={{__html: this.icon(name)}}
 			/>

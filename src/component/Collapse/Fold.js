@@ -5,10 +5,10 @@ import { observer } from 'mobx-react';
 
 import { SvgIcon } from '../Icon';
 
-require('./styles/Fold.default.less');
+require('./styles/Collapse.default.less');
 
 @observer
-export default class Fold extends React.Component {
+export default class Collapse extends React.Component {
 	@observable open = false;
 
 	static propTypes = {
@@ -26,7 +26,6 @@ export default class Fold extends React.Component {
 	};
 
 	handleOpen  = e => {
-		console.warn(this.open);
 		this.open = (!this.open);
 	};
 
@@ -38,32 +37,33 @@ export default class Fold extends React.Component {
 			...other
 		} = this.props;
 
+		const rootClassName = this.open ?
+			'ow-collapse ow-collapse-open'
+			: 'ow-collapse ow-collapse-close';
+
 		return (
-			<div className="ow-fold">
+			<div className={rootClassName}>
 				{
 					this.open ?
-					<div className="ow-fold-open">
-						{content}
-						<SvgIcon
-							onClick={this.handleOpen}
-							name='chevronRight'
-							color='#fff'
-							className={this.open ? 'opened': ''}
-						/>
+					<div className="ow-collapse-content-open">
+						<div className="ow-collapse-content-title">
+							{title}
+						</div>
+						<div className="ow-collapse-content-main">
+							{content}
+						</div>
 					</div>
 					:
-					<div className="ow-fold-close">
+					<div className="ow-collapse-content-close">
 						{title}
-						<SvgIcon
-							onClick={this.handleOpen}
-							name='chevronRight'
-							color='#fff'
-							className={this.open ? 'opened': ''}
-						/>
-
-						{content}
 					</div>
 				}
+				<SvgIcon
+					onClick={this.handleOpen}
+					name='chevronRight'
+					color='rgba(204, 204, 204, 0.5)'
+					className={this.open ? 'ow-collapse-icon-opened': ''}
+				/>
 			</div>
 		);
 	}
