@@ -1,0 +1,165 @@
+@import "../../../assets/theme/base.default.less";
+
+@-webkit-keyframes frames-toggle-on {
+  0% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  100% {
+    left: 50%;
+    right: 0;
+  }
+}
+@-moz-keyframes frames-toggle-on {
+  0% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  100% {
+    left: 50%;
+    right: 0;
+  }
+}
+@-o-keyframes frames-toggle-on {
+  0% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  100% {
+    left: 50%;
+    right: 0;
+  }
+}
+@keyframes frames-toggle-on {
+  0% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  100% {
+    left: 50%;
+    right: 0;
+  }
+}
+
+@-webkit-keyframes frames-toggle-off {
+  100% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  0% {
+    left: 50%;
+    right: 0;
+  }
+}
+@-moz-keyframes frames-toggle-off {
+  100% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  0% {
+    left: 50%;
+    right: 0;
+  }
+}
+@-o-keyframes frames-toggle-off {
+  100% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  0% {
+    left: 50%;
+    right: 0;
+  }
+}
+@keyframes frames-toggle-off {
+  100% {
+    left: 0;
+    right: 50%;
+  }
+  30% {
+    left: 0;
+    right: 35%;
+  }
+  0% {
+    left: 50%;
+    right: 0;
+  }
+}
+.ow-toggle-on::before {
+  animation: frames-toggle-off .3s ease-out forwards;
+}
+
+.ow-toggle-off::before {
+  animation: frames-toggle-on .3s ease-out forwards;
+}
+
+.ow-toggle-on {
+  background-color: lighten(@color-gray-light, 25%) ;
+  animation: background-color 0.3s ease-out;
+}
+
+.ow-toggle-off {
+  background-color: @color-blue;
+  animation: background-color 0.3s ease-out;
+}
+
+.ow-toggle {
+  input {
+    position: relative;
+    display: inline-block;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    height: 30px;
+    width: 60px;
+    font-size: 2em;
+    border-radius: 1.5em;
+    border-color: transparent;
+    background-clip: padding-box;
+    vertical-align: middle;
+    color: #E2E5E5;
+    cursor: pointer;
+    outline: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 50%;
+      background-color: white;
+      border-radius: 100%;
+      border: 0.125em solid transparent;
+      background-clip: padding-box;
+      transform-origin: right center;
+    }
+  }
+}
