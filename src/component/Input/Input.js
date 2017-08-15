@@ -5,9 +5,11 @@ require('./styles/Input.default.less');
 
 export default class Input extends React.Component {
 	static propTypes = {
+		type: ProTypes.string,
 	};
 
 	static defaultProps = {
+		type: 'default',
 	};
 
 
@@ -23,6 +25,7 @@ export default class Input extends React.Component {
 				{...other}
 				className='ow-input'
 			>
+				<input type="text"/>
 			</div>
 		);
 	}
