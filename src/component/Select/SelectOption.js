@@ -15,8 +15,8 @@ export default class SelectOption extends React.Component {
 	handleMouseDown = e => {
 		e.stopPropagation();
 		e.preventDefault();
-		this.props.onSelect(this.props.option, event);
-	}
+		this.props.onSelect(this.props.option.value, event);
+	};
 
 	render () {
 		const {
@@ -26,7 +26,7 @@ export default class SelectOption extends React.Component {
 			...props
 		} = this.props;
 
-		const disabledOptClassName = [className, 'ow-select-option', 'ow-select-option-disabled'].join(' ');
+		const disabledOptClassName = [className, 'ow-select-option', 'disabled'].join(' ');
 		const enableOptClassName = [className, 'ow-select-option'].join('');
 
 		return option.disabled ? (

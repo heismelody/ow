@@ -7,10 +7,22 @@ require('./styles/Select.default.less');
 
 export default class SelectedValue extends React.Component {
 	static propTypes = {
+		value: ProTypes.object.isRequired,
 	};
 
 	static defaultProps = {
 	};
+
+	renderSelectedValues() {
+		return <div>
+
+		</div>;
+	}
+
+	renderCloseIcon() {
+		return <SvgIcon>
+		</SvgIcon>
+	}
 
 	render() {
 		const {

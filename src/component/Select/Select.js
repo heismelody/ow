@@ -12,11 +12,14 @@ require('./styles/Select.default.less');
 @observer
 export default class Select extends React.Component {
 	@observable open = false;
+	@observable value = [];
 
 	static propTypes = {
+		multi: ProTypes.bool,
 	};
 
 	static defaultProps = {
+		multi: false
 	};
 
 	componentDidMount() {
@@ -39,8 +42,26 @@ export default class Select extends React.Component {
 	};
 
 	handleSelectClick = e => {
-		this.open = (!this.open);
+		// this.open = (!this.open);
 		this.selectedInput.focus();
+	};
+
+	handleSelectOption = (val, e) => {
+		console.log(val)
+		if (this.props.multi) {
+			this.addValue(val);
+		} else {
+			this.setValue(val);
+		}
+	};
+
+	addValue = val => {
+		this.value.push(val);
+	};
+
+	setValue = val => {
+		this.open = false;
+		this.value.splice(0, this.value.length, val);
 	};
 
 	renderOptions = () => {
@@ -69,6 +90,7 @@ export default class Select extends React.Component {
 
 		return options.map( (option,i) => {
 			return <SelectOption
+				onSelect={this.handleSelectOption}
 				key={i}
 				option={option}
 			/>
@@ -77,6 +99,7 @@ export default class Select extends React.Component {
 
 	render() {
 		const {
+			multi,
 
 			...other
 		} = this.props;
@@ -94,6 +117,11 @@ export default class Select extends React.Component {
 					<SelectedValue
 						selectedInput={el => this.selectedInput = el}
 					/>
+					{
+						this.value.map( (ele, i) => {
+							return <p key={i}>{ele}</p>;
+						})
+					}
 
 					<SvgIcon
 						size='sm'
