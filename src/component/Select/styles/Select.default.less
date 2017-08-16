@@ -1,70 +1,19 @@
-.effect() {
-  animation-duration: 0.3s;
-  animation-fill-mode: both;
-  transform-origin: 0 0;
-  display: block !important;
-}
-
-.slide-up-appear {
-  .effect();
-  opacity: 0;
-  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
-  animation-play-state: paused;
-}
-
-.slide-up-leave {
-  .effect();
-  opacity: 1;
-  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
-  animation-play-state: paused;
-}
-
-@keyframes selectShow{
-  0% {
-    opacity: 0;
-    transform-origin: 0% 100%;
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: 0% 100%;
-    transform: scaleY(1);
-  }
-}
-
-@keyframes selectHide {
-  0% {
-    opacity: 1;
-    transform-origin: 0% 0%;
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform-origin: 0% 0%;
-    transform: scaleY(0);
-  }
-}
-
 .ow-select {
   position: absolute;
   cursor: text;
 
   .ow-select-list {
+    min-width: 160px;
+    width: 400px;
+    display: block;
     position: absolute;
     top: 100%;
     padding: 5px 0;
-    margin: 2px 0 0;
+    margin: 0;
     left: 0;
-    display: block;
-    min-width: 160px;
-    max-height: 400px;
     z-index: 1000;
     list-style: none;
-
     border: 1px solid #ccc;
-    //border: 1px solid rgba(0,0,0,.15);
-    //border-radius: 4px;
-    margin: 0;
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
     overflow-y: scroll;
@@ -72,22 +21,34 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
-    animation: selectShow .3s ease-out forwards;
-    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -ms-transition: all 0.35s;
+    -o-transition: all 0.35s;
+    transition: all 0.35s;
   }
 
   &:not(.ow-select-open) .ow-select-list{
-    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
-    animation: selectHide .3s ease-out forwards;
+    max-height: 0;
+    opacity: 0;
   }
 
-  &.ow-select-open .ow-select-list {
+  &.ow-select-open {
+    .ow-select-body {
+      border-bottom: none;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
-    animation: selectSlideDown;
-    animation-play-state: running;
+    .ow-select-list {
+      max-height: 200px;
+      opacity: 1;
+    }
   }
 
   .ow-select-body {
+    height: 33px;
+    min-width: 400px;
     display: block;
     padding: 0;
     background: none;

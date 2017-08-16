@@ -17,6 +17,20 @@ export default class Select extends React.Component {
 	static defaultProps = {
 	};
 
+	componentDidMount() {
+		document.addEventListener('mousedown', this.handleClickOutside);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.handleClickOutside);
+	}
+
+	handleClickOutside = e => {
+		if (this.refs.owSelect && !this.refs.owSelect.contains(e.target)) {
+			this.open = false;
+		}
+	};
+
 	handleToggleList = e => {
 		e.stopPropagation();
 		this.open = (!this.open);
@@ -38,6 +52,7 @@ export default class Select extends React.Component {
 				{...other}
 				className={['ow-select',this.open && 'ow-select-open'].filter(e => !!e).join(' ')}
 			  onClick={this.handleSelectClick}
+			  ref='owSelect'
 			>
 				<div
 					className="ow-select-body"
