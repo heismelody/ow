@@ -4,6 +4,8 @@ import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 
 import { SvgIcon } from '../Icon';
+import SelectOption from './SelectOption';
+import SelectedValue from './SelectedValue';
 
 require('./styles/Select.default.less');
 
@@ -38,8 +40,40 @@ export default class Select extends React.Component {
 
 	handleSelectClick = e => {
 		this.open = (!this.open);
-		this.refs.selectInput.focus();
+		this.selectedInput.focus();
 	};
+
+	renderOptions = () => {
+		let options = [
+			{
+				value: 'sss',
+				label: 'sss',
+			},{
+				value: 'aaa',
+				label: 'sss',
+			},{
+				value: 'sss',
+				label: 'bbb',
+			},{
+				value: 'ccc',
+				label: 'ddd',
+			},{
+				value: 'eee',
+				label: 'fff',
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			}
+		];
+
+		return options.map( (option,i) => {
+			return <SelectOption
+				key={i}
+				option={option}
+			/>
+		});
+	}
 
 	render() {
 		const {
@@ -57,9 +91,8 @@ export default class Select extends React.Component {
 				<div
 					className="ow-select-body"
 				>
-					<input
-						type='text'
-						ref='selectInput'
+					<SelectedValue
+						selectedInput={el => this.selectedInput = el}
 					/>
 
 					<SvgIcon
@@ -69,55 +102,13 @@ export default class Select extends React.Component {
 						color='#b6b6b6'
 						className={this.open ? 'ow-collapse-icon-opened': ''}
 					/>
-				</div>  
+				</div>
 
-				{
-					<ul className="ow-select-list">
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>ZH</li>
-						<li>EU</li>
-
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-						<li>EN</li>
-						<li>ZH</li>
-						<li>EU</li>
-
-					</ul>
-				}
-
-
+				<div className="ow-select-list">
+					{
+						this.renderOptions()
+					}
+				</div>
 			</div>
 		);
 	}
