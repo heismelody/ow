@@ -63,9 +63,10 @@ export default class Select extends React.Component {
 					/>
 
 					<SvgIcon
+						size='sm'
 						onClick={this.handleToggleList}
 						name='chevronRight'
-						color='rgba(204, 204, 204, 0.5)'
+						color='#b6b6b6'
 						className={this.open ? 'ow-collapse-icon-opened': ''}
 					/>
 				</div>  
