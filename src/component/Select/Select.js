@@ -104,11 +104,11 @@ export default class Select extends React.Component {
 					/>
 				</div>
 
-				<div className="ow-select-list">
+				<ul className="ow-select-list">
 					{
 						this.renderOptions()
 					}
-				</div>
+				</ul>
 			</div>
 		);
 	}

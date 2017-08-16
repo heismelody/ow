@@ -1,3 +1,5 @@
+@import '../../../assets/theme/base.default.less';
+
 .ow-select {
   position: absolute;
   cursor: text;
@@ -94,6 +96,24 @@
           fill: #4a4a4a;
         }
       }
+    }
+  }
+}
+
+
+//---- Ow select option styles
+.ow-select-list {
+  cursor: pointer;
+
+  .ow-select-option {
+    opacity: 0.7;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    line-height: 30px;
+
+    &:hover {
+      background-color: lighten(@color-green, 30%);
     }
   }
 }

@@ -30,19 +30,19 @@ export default class SelectOption extends React.Component {
 		const enableOptClassName = [className, 'ow-select-option'].join('');
 
 		return option.disabled ? (
-			<div className={disabledOptClassName}
+			<li className={disabledOptClassName}
 			     role='option'
 			>
-				{this.props.children}
-			</div>
+				{option.label}
+			</li>
 		) : (
-			<div className={enableOptClassName}
+			<li className={enableOptClassName}
 			     style={option.style}
 			     role='option'
 			     onMouseDown={this.handleMouseDown}
 			>
-				{this.props.children}
-			</div>
+				{option.label}
+			</li>
 		);
 	}
 }
