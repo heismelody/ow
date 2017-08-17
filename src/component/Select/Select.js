@@ -86,7 +86,31 @@ export default class Select extends React.Component {
 				value: 'fde',
 				label: 'sdf',
 				disabled: true
-			}
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			},{
+				value: 'sss',
+				label: 'sss',
+				active: true
+			},{
+				value: 'aaa',
+				label: 'sss',
+			},{
+				value: 'sss',
+				label: 'bbb',
+			},{
+				value: 'ccc',
+				label: 'ddd',
+			},{
+				value: 'eee',
+				label: 'fff',
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			},
 		];
 
 		return options.map( (option,i) => {

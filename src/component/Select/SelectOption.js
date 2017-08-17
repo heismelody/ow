@@ -21,30 +21,45 @@ export default class SelectOption extends React.Component {
 	};
 
 	renderDefaultOption = () => {
-		const enableOptClassName = [this.props.className, 'ow-select-option'].join('');
+		const enableOptClassName = [this.props.className, 'ow-select-option'].join(' ');
 
-		return <div className={enableOptClassName}
-		            style={this.props.option.style}
-		            role='option'
-		            onMouseDown={this.handleMouseDown}
-		       >
-							{this.props.option.label}
-							<SvgIcon name='check' size='sm'/>
-					 </div>;
+		return (
+			<div className={enableOptClassName}
+			     style={this.props.option.style}
+			     role='option'
+			     onMouseDown={this.handleMouseDown}
+			>
+				{this.props.option.label}
+				<SvgIcon name='check' size='sm'/>
+			</div>
+		);
 	};
 
 	renderActiveOption = () => {
+		const enableOptClassName = [this.props.className, 'ow-select-option', 'active'].join(' ');
 
+		return(
+			<div className={enableOptClassName}
+			            style={this.props.option.style}
+			            role='option'
+			            onMouseDown={this.handleMouseDown}
+			>
+				{this.props.option.label}
+				<SvgIcon name='check' size='sm'/>
+			</div>
+		);
 	};
 
 	renderDisabledOption = () => {
 		const disabledOptClassName = [this.props.className, 'ow-select-option', 'disabled'].join(' ');
 
-		return <div className={disabledOptClassName}
-		            role='option'
-					 >
-					  {this.props.option.label}
-					 </div>
+		return (
+			<div className={disabledOptClassName}
+			    role='option'
+			>
+			{this.props.option.label}
+			</div>
+		);
 	};
 
 	render () {

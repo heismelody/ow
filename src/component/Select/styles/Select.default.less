@@ -21,10 +21,6 @@
     overflow-y: auto;
     border-top: none;
     border-radius: 0 0 4px 4px;
-    //border-top-left-radius: 0;
-    //border-top-right-radius: 0;
-    //border-bottom-left-radius: 4px;
-    //border-bottom-right-radius: 4px;
 
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
@@ -107,6 +103,21 @@
 .ow-select-list {
   cursor: pointer;
 
+  &::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    border-bottom-right-radius: 4px;
+    background: white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 6px;
+    background: #c9c9c9;
+  }
+
   .ow-select-option {
     opacity: 0.6;
     height: 30px;
@@ -119,13 +130,19 @@
       cursor: text;
     }
 
-    &.actived {
-      background-color: lighten(@color-green, 35%);
+    &.active {
+      //background-color: lighten(@color-green, 35%);
+      background-color: lighten(#9c9c9c, 33%);
+
+      .ow-svg-icon svg {
+        fill: darken(@color-green, 20%);
+      }
     }
 
     &:not(.disabled):hover {
-      //background-color: lighten(@color-green, 27%);
-      background-color: lighten(#9c9c9c, 25%);
+      background-color: lighten(@color-green, 25%);
+      cursor: pointer;
+      //background-color: lighten(#9c9c9c, 25%);
     }
 
     .ow-svg-icon {
