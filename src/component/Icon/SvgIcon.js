@@ -13,6 +13,7 @@ import menuTags from './svg/tags.svg';
 import down from './svg/caret-down.svg';
 import chevronRight from './svg/lnr-chevron-right.svg';
 import check from './svg/check.svg';
+import close from './svg/close.svg';
 
 require('./styles/SvgIcon.default.less');
 
@@ -28,7 +29,8 @@ const icons = {
 	menuTags,
 	down,
 	chevronRight,
-	check
+	check,
+	close
 };
 
 export default class SvgIcon extends React.Component {

@@ -129,6 +129,53 @@ export default class Select extends React.Component {
 			...other
 		} = this.props;
 
+		const values = [
+			{
+				value: 'sss',
+				label: 'sss',
+				active: true
+			},{
+				value: 'aaa',
+				label: 'sss',
+			},{
+				value: 'sss',
+				label: 'bbb',
+			},{
+				value: 'ccc',
+				label: 'ddd',
+			},{
+				value: 'eee',
+				label: 'fff',
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			},{
+				value: 'sss',
+				label: 'sss',
+				active: true
+			},{
+				value: 'aaa',
+				label: 'sss',
+			},{
+				value: 'sss',
+				label: 'bbb',
+			},{
+				value: 'ccc',
+				label: 'ddd',
+			},{
+				value: 'eee',
+				label: 'fff',
+			},{
+				value: 'fde',
+				label: 'sdf',
+				disabled: true
+			},
+		];
 		return (
 			<div
 				{...other}
@@ -140,20 +187,21 @@ export default class Select extends React.Component {
 					className="ow-select-body"
 				>
 					<SelectedValue
+						value={values}
 						selectedInput={el => this.selectedInput = el}
 					/>
-					{
-						this.value.map( (ele, i) => {
-							return <p key={i}>{ele}</p>;
-						})
-					}
+					{/*{*/}
+						{/*this.value.map( (ele, i) => {*/}
+							{/*return <p key={i}>{ele}</p>;*/}
+						{/*})*/}
+					{/*}*/}
 
 					<SvgIcon
 						size='sm'
 						onClick={this.handleToggleList}
 						name='chevronRight'
 						color='#b6b6b6'
-						className={this.open ? 'ow-collapse-icon-opened': ''}
+						className={[this.open ? 'ow-collapse-icon-opened': '', 'ow-collapse-icon'].join(' ')}
 					/>
 				</div>
 
