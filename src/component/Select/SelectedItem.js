@@ -5,12 +5,16 @@ import { SvgIcon } from '../Icon';
 
 require('./styles/Select.default.less');
 
-export default class SelectedValue extends React.Component {
+export default class SelectedItem extends React.Component {
 	static propTypes = {
-		value: ProTypes.array.isRequired,
+		// value: ProTypes.array.isRequired,
 	};
 
 	static defaultProps = {
+	};
+
+	removeValue = e => {
+		this.props.onRemoveValue(this.props.value);
 	};
 
 	renderItems() {
@@ -30,43 +34,25 @@ export default class SelectedValue extends React.Component {
 		});
 	}
 
-	renderClearIcon() {
-		return (
-			<div>
-				<SvgIcon
-					name='close'
-					color='#b6b6b6'
-					size='sm'
-				/>
-			</div>
-		)
-	}
-
 	render() {
 		const {
-			selectedInput,
 			value,
 
 			...other
 		} = this.props;
 
 		return (
-			<div
-				className='ow-select-values'
-				{...other}
+			<span
+				className='ow-select-values-item'
 			>
-				{
-					this.renderItems()
-				}
-				<input
-					className='ow-select-values-input'
-					type='text'
-					ref={selectedInput}
+				<span className='ow-item-label'>{value.label}</span>
+				<SvgIcon
+					onClick={this.removeValue}
+					name='close'
+          color='#b6b6b6'
+          size='sm'
 				/>
-				{
-					this.renderClearIcon()
-				}
-			</div>
+			</span>
 		);
 	}
 }

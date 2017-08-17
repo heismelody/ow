@@ -1,6 +1,6 @@
 import Select from './Select';
 import SelectOption from './SelectOption';
-import SelectedValue from './SelectedValue';
+import SelectedValue from './SelectedItem';
 
 export {
 	Select,

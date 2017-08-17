@@ -17,7 +17,7 @@ export default class SelectOption extends React.Component {
 	handleMouseDown = e => {
 		e.stopPropagation();
 		e.preventDefault();
-		this.props.onSelect(this.props.option.value, event);
+		this.props.onSelect(this.props.option, event);
 	};
 
 	renderDefaultOption = () => {
