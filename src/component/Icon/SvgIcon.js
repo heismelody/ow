@@ -12,6 +12,7 @@ import menuPaper from './svg/file-o.svg';
 import menuTags from './svg/tags.svg';
 import down from './svg/caret-down.svg';
 import chevronRight from './svg/lnr-chevron-right.svg';
+import check from './svg/check.svg';
 
 require('./styles/SvgIcon.default.less');
 
@@ -27,6 +28,7 @@ const icons = {
 	menuTags,
 	down,
 	chevronRight,
+	check
 };
 
 export default class SvgIcon extends React.Component {
@@ -55,10 +57,12 @@ export default class SvgIcon extends React.Component {
 			...other
 		} = this.props;
 
+		const mergedClassName = ['ow-svg-icon', size && `ow-svg-icon-${size}`, className].join(' ');
+
 		return (
 			<span
 				{...other}
-		    className={ size ? `ow-svg-icon-${size} ow-svg-icon ${className}` : `ow-svg-icon ${className}` }
+		    className={mergedClassName}
 		    style={{ fill: color }}
 				dangerouslySetInnerHTML={{__html: this.icon(name)}}
 			/>

@@ -69,6 +69,7 @@ export default class Select extends React.Component {
 			{
 				value: 'sss',
 				label: 'sss',
+				active: true
 			},{
 				value: 'aaa',
 				label: 'sss',

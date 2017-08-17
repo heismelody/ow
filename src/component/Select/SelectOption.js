@@ -1,6 +1,8 @@
 import React from 'react';
 import ProTypes from 'prop-types';
 
+import { SvgIcon } from '../Icon';
+
 export default class SelectOption extends React.Component {
 	static propTypes = {
 		option: ProTypes.object.isRequired,   //Option Item
@@ -18,6 +20,33 @@ export default class SelectOption extends React.Component {
 		this.props.onSelect(this.props.option.value, event);
 	};
 
+	renderDefaultOption = () => {
+		const enableOptClassName = [this.props.className, 'ow-select-option'].join('');
+
+		return <div className={enableOptClassName}
+		            style={this.props.option.style}
+		            role='option'
+		            onMouseDown={this.handleMouseDown}
+		       >
+							{this.props.option.label}
+							<SvgIcon name='check' size='sm'/>
+					 </div>;
+	};
+
+	renderActiveOption = () => {
+
+	};
+
+	renderDisabledOption = () => {
+		const disabledOptClassName = [this.props.className, 'ow-select-option', 'disabled'].join(' ');
+
+		return <div className={disabledOptClassName}
+		            role='option'
+					 >
+					  {this.props.option.label}
+					 </div>
+	};
+
 	render () {
 		const {
 			option,
@@ -26,23 +55,10 @@ export default class SelectOption extends React.Component {
 			...props
 		} = this.props;
 
-		const disabledOptClassName = [className, 'ow-select-option', 'disabled'].join(' ');
-		const enableOptClassName = [className, 'ow-select-option'].join('');
-
-		return option.disabled ? (
-			<li className={disabledOptClassName}
-			     role='option'
-			>
-				{option.label}
-			</li>
-		) : (
-			<li className={enableOptClassName}
-			     style={option.style}
-			     role='option'
-			     onMouseDown={this.handleMouseDown}
-			>
-				{option.label}
-			</li>
-		);
+		return option.disabled ?
+			this.renderDisabledOption() :
+			(option.active ?
+				this.renderActiveOption() : this.renderDefaultOption()
+			);
 	}
 }

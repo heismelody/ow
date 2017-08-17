@@ -18,7 +18,7 @@
     border: 1px solid rgba(60,60,60,.26);
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
     box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    overflow-y: scroll;
+    overflow-y: auto;
     border-top: none;
     border-radius: 0 0 4px 4px;
     //border-top-left-radius: 0;
@@ -103,7 +103,6 @@
   }
 }
 
-
 //---- Ow select option styles
 .ow-select-list {
   cursor: pointer;
@@ -125,7 +124,12 @@
     }
 
     &:not(.disabled):hover {
-      background-color: lighten(@color-green, 27%);
+      //background-color: lighten(@color-green, 27%);
+      background-color: lighten(#9c9c9c, 25%);
+    }
+
+    .ow-svg-icon {
+      float: right;
     }
   }
 }
