@@ -16,24 +16,29 @@ export default class SelectedValue extends React.Component {
 	renderItems() {
 		return this.props.value.map( (item, index) => {
 			return (
-				<p key={index}>
+				<span
+					className='ow-select-values-item'
+					key={index}
+				>
 					{item.label}
 					<SvgIcon name='close'
 					         color='#b6b6b6'
 					         size='sm'
 					/>
-				</p>
+				</span>
 			);
 		});
 	}
 
 	renderClearIcon() {
 		return (
-			<SvgIcon
-				name='close'
-				color='#b6b6b6'
-			  size='sm'
-			/>
+			<div>
+				<SvgIcon
+					name='close'
+					color='#b6b6b6'
+					size='sm'
+				/>
+			</div>
 		)
 	}
 
@@ -54,6 +59,7 @@ export default class SelectedValue extends React.Component {
 					this.renderItems()
 				}
 				<input
+					className='ow-select-values-input'
 					type='text'
 					ref={selectedInput}
 				/>

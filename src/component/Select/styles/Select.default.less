@@ -54,19 +54,13 @@
   }
 
   .ow-select-body {
-    height: 30px;
-    min-width: 400px;
+    width: 400px;
     display: block;
     padding: 0;
     background: none;
     border: 1px solid rgba(60,60,60,.26);
     border-radius: 4px;
     white-space: normal;
-
-    input {
-      outline: 0;
-      border: none;
-    }
 
     .ow-collapse-icon {
       position: absolute;
@@ -96,9 +90,58 @@
         }
       }
     }
+  }
+}
+//---- Ow select value styles
+.ow-select-values {
+  &:before {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+    display: table;
+    content: " ";
+  }
 
-    .ow-select-values {
-      
+  //Selected values input area
+  .ow-select-values-input {
+    display: inline-block;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0 .5em;
+    width: 10em;
+    max-width: 100%;
+    background: none;
+    position: relative;
+    box-shadow: none;
+    float: left;
+    height: 34px;
+    clear: none;
+    font-size: 13px;
+  }
+
+  //Selected items
+  .ow-select-values-item {
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 26px;
+    margin: 4px 1px 0 3px;
+    padding: 0 .5em;
+    float: left;
+    line-height: 1.7em;
+
+    svg:hover {
+      fill: #4a4a4a;
+      cursor: pointer;
+    }
+
+    svg {
+      display: inline-block;
+      margin-bottom: 2px;
     }
   }
 }

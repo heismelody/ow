@@ -12,7 +12,7 @@ require('./styles/Select.default.less');
 @observer
 export default class Select extends React.Component {
 	@observable open = false;
-	@observable value = [];
+	@observable values = [];
 
 	static propTypes = {
 		multi: ProTypes.bool,
@@ -56,12 +56,12 @@ export default class Select extends React.Component {
 	};
 
 	addValue = val => {
-		this.value.push(val);
+		this.values.push(val);
 	};
 
 	setValue = val => {
 		this.open = false;
-		this.value.splice(0, this.value.length, val);
+		this.values.splice(0, this.values.length, val);
 	};
 
 	renderOptions = () => {
