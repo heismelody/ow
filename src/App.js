@@ -14,6 +14,66 @@ import { Select } from './component/Select';
 import avat from '../tests/9329094.jpeg';
 require('./assets/theme/page.default.less');
 
+const options = [
+	{
+		value: 'sss',
+		label: 'sss',
+		active: true,
+		key: 1,
+	},{
+		value: 'aaa',
+		label: 'sss',
+		key: 2,
+	},{
+		value: 'sss',
+		label: 'bbb',
+		key: 3,
+	},{
+		value: 'ccc',
+		label: 'ddd',
+		key: 4,
+	},{
+		value: 'eee',
+		label: 'fff',
+		key: 5,
+	},{
+		value: 'fde',
+		label: 'sdf',
+		disabled: true,
+		key: 6,
+	},{
+		value: 'fde',
+		label: 'sdf',
+		disabled: true,
+		key: 7,
+	},{
+		value: 'sss',
+		label: 'sss',
+		active: true,
+		key: 8,
+	},{
+		value: 'aaa',
+		label: 'sss',
+		key: 9,
+	},{
+		value: 'sss',
+		label: 'bbb',
+		key: 10,
+	},{
+		value: 'ccc',
+		label: 'ddd',
+		key: 11,
+	},{
+		value: 'eee',
+		label: 'fff',
+		key: 12,
+	},{
+		value: 'fde',
+		label: 'sdf',
+		disabled: true,
+		key: 13,
+	},
+];
 export default class App extends React.Component {
 	render() {
 		return <div style={{margin: '100px'}}>
@@ -32,7 +92,7 @@ export default class App extends React.Component {
 
 			{/*<Toggle/>*/}
 			{/*<Input/>*/}
-			<Select/>
+			<Select options={options} multi={true}/>
     </div>
 	}
 };

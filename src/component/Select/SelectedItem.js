@@ -14,25 +14,8 @@ export default class SelectedItem extends React.Component {
 	};
 
 	removeValue = e => {
-		this.props.onRemoveValue(this.props.value);
+		this.props.onRemoveValue(e, this.props.value);
 	};
-
-	renderItems() {
-		return this.props.value.map( (item, index) => {
-			return (
-				<span
-					className='ow-select-values-item'
-					key={index}
-				>
-					{item.label}
-					<SvgIcon name='close'
-					         color='#b6b6b6'
-					         size='sm'
-					/>
-				</span>
-			);
-		});
-	}
 
 	render() {
 		const {
