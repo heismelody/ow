@@ -74,7 +74,47 @@ const options = [
 		key: 13,
 	},
 ];
+
+const options2 = [
+	{
+		value: 'sss',
+		label: 'sss',
+		active: true,
+		key: 1,
+	},{
+		value: 'aaa',
+		label: 'sss',
+		key: 2,
+	},{
+		value: 'sss',
+		label: 'bbb',
+		key: 3,
+	},{
+		value: 'ccc',
+		label: 'ddd',
+		key: 4,
+	}];
+
+var t = false;
+
 export default class App extends React.Component {
+	state = {
+		'option': options
+	};
+
+	changeOption = e => {
+		t = (!t);
+		if(t) {
+			this.setState({
+				'option': options2,
+			})
+		} else {
+			this.setState({
+				'option': options,
+			})
+		}
+	};
+
 	render() {
 		return <div style={{margin: '100px'}}>
 			{/*<SvgIcon name='arrowLeft'/>*/}
@@ -92,7 +132,9 @@ export default class App extends React.Component {
 
 			{/*<Toggle/>*/}
 			{/*<Input/>*/}
-			<Select options={options} multi={true}/>
+
+			<Select options={this.state.option} multi={true}/>
+			{/*<div style={{backgroundColor: '#ccc',width: '100px', height: '200px'}} onClick={this.changeOption}></div>*/}
     </div>
 	}
 };

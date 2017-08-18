@@ -39,6 +39,19 @@ export default class Select extends React.Component {
 		document.removeEventListener('mousedown', this.handleClickOutside);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.options = nextProps.options.slice();
+		this.values = nextProps.options.filter( option => option.active == true);
+	}
+
+	handleInputKeydown = e => {
+		const key = e.keyCode || e.charCode;
+
+		if ( key == 8 || key == 46 ) {
+			this.values.pop();
+		}
+	};
+
 	handleClickOutside = e => {
 		if (this.refs.owSelect && !this.refs.owSelect.contains(e.target)) {
 			this.open = false;
@@ -101,7 +114,6 @@ export default class Select extends React.Component {
 
 		if (this.values.length > 0 && (this.values[0].key == val.key)) {
 			this.values.splice(0, 1);
-			console.warn(this.values)
 		} else {
 			this.values.splice(0, this.values.length, val);
 		}
@@ -185,6 +197,7 @@ export default class Select extends React.Component {
 							className='ow-select-values-input'
 							type='text'
 							ref='selectedInput'
+						  onKeyDown={this.handleInputKeydown}
 						/>
 						{
 							(this.values.length) > 0 && this.renderClearIcon()
