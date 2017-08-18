@@ -157,11 +157,7 @@ export default class Select extends React.Component {
 					option={option}
 				  disable={option.disabled}
 				  actived={actived}
-					customize={true}
-				  className='github-avatar'
-				>
-					<SvgIcon name='close' color='#ccc'/>
-				</SelectOption>
+				/>
 			);
 		});
 	};

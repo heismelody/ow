@@ -10,6 +10,8 @@ import TabTest from './component/Tabs/TabTest';
 import { Toggle } from './component/Toggle';
 import { Input } from './component/Input';
 import { Select } from './component/Select';
+import { Tree } from './component/Tree';
+import { Popover } from './component/Popover';
 
 import avat from '../tests/9329094.jpeg';
 require('./assets/theme/page.default.less');
@@ -121,7 +123,8 @@ export default class App extends React.Component {
 			{/*<Toggle/>*/}
 			{/*<Input/>*/}
 
-			<Select options={this.state.option} multi={true}/>
+			<Tree/>
+			{/*<Select options={this.state.option} multi={true}/>*/}
 			{/*<div style={{backgroundColor: '#ccc',width: '100px', height: '200px'}} onClick={this.changeOption}></div>*/}
     </div>
 	}
