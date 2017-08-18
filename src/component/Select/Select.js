@@ -86,9 +86,11 @@ export default class Select extends React.Component {
 				return;
 			}
 		});
+		//if selected values contain val, then change this val's state to unselected
 		if (isActive) {
 			this.values.splice(activeIndex, 1);
 		} else {
+			//We didn't find the val in selected values , then set to this value.
 			this.values.push(val);
 		}
 	};
@@ -97,22 +99,12 @@ export default class Select extends React.Component {
 		this.open = false;
 		this.refs.selectedInput.focus();
 
-		//if selected values contain val, then change this val's state to unselected
-		// if(this.values.length > 0) {
-		// 	for (let i = 0; i <= this.values.length; i++) {
-		// 		if (this.values[i].key == val.key) {
-		// 			this.values.splice(i, 1);
-		// 			return;
-		// 		}
-		// 	}
-		// }
 		if (this.values.length > 0 && (this.values[0].key == val.key)) {
 			this.values.splice(0, 1);
 			console.warn(this.values)
 		} else {
 			this.values.splice(0, this.values.length, val);
 		}
-		//We didn't find the val in selected values , then set to this value.
 	};
 
 	renderClearIcon = () => {
