@@ -12,11 +12,8 @@ require('./styles/Select.default.less');
 @observer
 export default class Select extends React.Component {
 	@observable open = false;
-	@observable values = [];
-	@observable options = [];
-	// @computed get values() {
-	// 	return this.options.filter( option => option.active == true );
-	// }
+	@observable values = new Array(1);
+	@observable options = new Array(1);
 
 	static propTypes = {
 		multi: ProTypes.bool,
@@ -30,8 +27,8 @@ export default class Select extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.options = props.options.slice();
-		this.values = props.options.filter( option => option.active == true);
+		this.options = this.props.options.slice();
+		this.values = this.props.options.filter( option => option.active == true);
 	}
 
 	componentDidMount() {
@@ -75,18 +72,47 @@ export default class Select extends React.Component {
 	removeValue = (e,val) => {
 		e.stopPropagation();
 		this.refs.selectedInput.focus();
-		// this.options.filter( item => val.key != item.key );
 		this.values = this.values.filter( item => val.key != item.key );
 	};
 
 	addValue = val => {
-		this.values.push(val);
+		let isActive = false;
+		let activeIndex = 0;
+
+		this.values.forEach( (value,index) => {
+			if (value.key == val.key) {
+				isActive = true;
+				activeIndex = index;
+				return;
+			}
+		});
+		if (isActive) {
+			this.values.splice(activeIndex, 1);
+		} else {
+			this.values.push(val);
+		}
 	};
 
 	setValue = val => {
 		this.open = false;
 		this.refs.selectedInput.focus();
-		this.values.splice(0, this.values.length, val);
+
+		//if selected values contain val, then change this val's state to unselected
+		// if(this.values.length > 0) {
+		// 	for (let i = 0; i <= this.values.length; i++) {
+		// 		if (this.values[i].key == val.key) {
+		// 			this.values.splice(i, 1);
+		// 			return;
+		// 		}
+		// 	}
+		// }
+		if (this.values.length > 0 && (this.values[0].key == val.key)) {
+			this.values.splice(0, 1);
+			console.warn(this.values)
+		} else {
+			this.values.splice(0, this.values.length, val);
+		}
+		//We didn't find the val in selected values , then set to this value.
 	};
 
 	renderClearIcon = () => {
@@ -111,11 +137,22 @@ export default class Select extends React.Component {
 
 	renderOptions = () => {
 		return this.options.map( (option,i) => {
+			let actived = false;
+
+			for(let val of this.values) {
+				if (val.key == option.key) {
+					actived = true;
+					break;
+				}
+			}
+
 			return (
 				<SelectOption
 					onSelect={this.handleSelectOption}
 					key={option.key}
 					option={option}
+				  disable={option.disabled}
+				  actived={actived}
 				/>
 			);
 		});

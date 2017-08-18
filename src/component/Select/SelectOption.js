@@ -7,6 +7,8 @@ export default class SelectOption extends React.Component {
 	static propTypes = {
 		option: ProTypes.object.isRequired,   //Option Item
 		index: ProTypes.number,               //Option Index
+		actived: ProTypes.bool,                //Is option actived
+		disable: ProTypes.bool,
 
 		isDisabled: ProTypes.bool,
 		isSelected: ProTypes.bool,
@@ -66,13 +68,15 @@ export default class SelectOption extends React.Component {
 		const {
 			option,
 			className,
+			actived,
+			disable,
 
 			...props
 		} = this.props;
 
-		return option.disabled ?
+		return disable ?
 			this.renderDisabledOption() :
-			(option.active ?
+			(actived ?
 				this.renderActiveOption() : this.renderDefaultOption()
 			);
 	}
