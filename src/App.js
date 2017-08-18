@@ -81,25 +81,13 @@ const options2 = [
 		label: 'sss',
 		active: true,
 		key: 1,
-	},{
-		value: 'aaa',
-		label: 'sss',
-		key: 2,
-	},{
-		value: 'sss',
-		label: 'bbb',
-		key: 3,
-	},{
-		value: 'ccc',
-		label: 'ddd',
-		key: 4,
 	}];
 
 var t = false;
 
 export default class App extends React.Component {
 	state = {
-		'option': options
+		'option': options2
 	};
 
 	changeOption = e => {

@@ -8,7 +8,8 @@ export default class SelectOption extends React.Component {
 		option: ProTypes.object.isRequired,   //Option Item
 		index: ProTypes.number,               //Option Index
 		actived: ProTypes.bool,                //Is option actived
-		disable: ProTypes.bool,
+		disable: ProTypes.bool,                 //Is option disabled
+		customize: ProTypes.bool,               //Is option customized
 
 		isDisabled: ProTypes.bool,
 		isSelected: ProTypes.bool,
@@ -42,9 +43,9 @@ export default class SelectOption extends React.Component {
 
 		return(
 			<div className={enableOptClassName}
-			            style={this.props.option.style}
-			            role='option'
-			            onMouseDown={this.handleMouseDown}
+			     style={this.props.option.style}
+			     role='option'
+			     onMouseDown={this.handleMouseDown}
 			>
 				{this.props.option.label}
 				<SvgIcon name='check' size='sm'/>
@@ -57,12 +58,51 @@ export default class SelectOption extends React.Component {
 
 		return (
 			<div className={disabledOptClassName}
-			    role='option'
+			     role='option'
 			>
-			{this.props.option.label}
+				{this.props.option.label}
 			</div>
 		);
 	};
+
+	renderCustomizeOption = (option, className, children) => {
+		const optionClassName = [className, `${className}-${option.key}`, 'ow-select-option'].join(' ');
+
+		return (
+			<div className={optionClassName}
+			     role='option'
+			     onMouseDown={this.handleMouseDown}
+			>
+				{children}
+			</div>
+		)
+	};
+
+	renderCusDisableOption = (option, className, children) => {
+		const optionClassName = [className, `${className}-${option.key}`, 'ow-select-option'].join(' ');
+
+		return (
+			<div className={optionClassName}
+			     role='option'
+			     onMouseDown={this.handleMouseDown}
+			>
+				{children}
+			</div>
+		)
+	}
+
+	renderCusActiveOption = (option, className, children) => {
+		const optionClassName = [className, `${className}-${option.key}`, 'ow-select-option'].join(' ');
+
+		return (
+			<div className={optionClassName}
+			     role='option'
+			     onMouseDown={this.handleMouseDown}
+			>
+				{children}
+			</div>
+		)
+	}
 
 	render () {
 		const {
@@ -70,14 +110,25 @@ export default class SelectOption extends React.Component {
 			className,
 			actived,
 			disable,
+			children,
+			customize,
 
 			...props
 		} = this.props;
 
-		return disable ?
-			this.renderDisabledOption() :
-			(actived ?
-				this.renderActiveOption() : this.renderDefaultOption()
-			);
+		//@TODO: cutomize is under deploy, dont use this prop.
+		if (customize && disable) {
+			return this.renderCusDisableOption(option, className, children);
+		} else if (customize && actived) {
+			return this.renderCusActiveOption(option, className, children);
+		} else if (customize) {
+			return this.renderCustomizeOption(option, className, children);
+		} else if (disable) {
+			return this.renderDisabledOption();
+		} else if (actived) {
+			return this.renderActiveOption();
+		} else {
+			return this.renderDefaultOption();
+		}
 	}
 }

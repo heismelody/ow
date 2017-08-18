@@ -47,7 +47,7 @@ export default class Select extends React.Component {
 	handleInputKeydown = e => {
 		const key = e.keyCode || e.charCode;
 
-		if ( key == 8 || key == 46 ) {
+		if ((key == 8 || key == 46) && (this.refs.selectedInput.value.length === 0)) {
 			this.values.pop();
 		}
 	};
@@ -157,7 +157,11 @@ export default class Select extends React.Component {
 					option={option}
 				  disable={option.disabled}
 				  actived={actived}
-				/>
+					customize={true}
+				  className='github-avatar'
+				>
+					<SvgIcon name='close' color='#ccc'/>
+				</SelectOption>
 			);
 		});
 	};
@@ -204,15 +208,11 @@ export default class Select extends React.Component {
 						}
 					</div>
 
-					{
-						this.renderCollpaseIcon()
-					}
+					{ this.renderCollpaseIcon() }
 				</div>
 
 				<ul className="ow-select-list">
-					{
-						this.renderOptions()
-					}
+					{ this.renderOptions() }
 				</ul>
 			</div>
 		);
