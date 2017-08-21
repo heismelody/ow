@@ -12,6 +12,7 @@ import { Input } from './component/Input';
 import { Select } from './component/Select';
 import { Tree } from './component/Tree';
 import { Popover } from './component/Popover';
+import { Rate } from './component/Rate';
 
 import avat from '../tests/9329094.jpeg';
 require('./assets/theme/page.default.less');
@@ -123,7 +124,8 @@ export default class App extends React.Component {
 			{/*<Toggle/>*/}
 			{/*<Input/>*/}
 
-			<Tree/>
+			{/*<Tree/>*/}
+			<Rate/>
 			{/*<Select options={this.state.option} multi={true}/>*/}
 			{/*<div style={{backgroundColor: '#ccc',width: '100px', height: '200px'}} onClick={this.changeOption}></div>*/}
     </div>
