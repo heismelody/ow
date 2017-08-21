@@ -11,8 +11,7 @@ export default class Input extends React.Component {
 	static defaultProps = {
 		type: 'default',
 	};
-
-
+	
 	render() {
 		const {
 

@@ -16,14 +16,15 @@ export default class Rate extends React.Component {
 	};
 
 	renderAllRateItem() {
-		let ele;
+		let ele = [];
 
 		for (let i = 0; i <= this.props.count; i++) {
+			ele.push(<div>
+
+			</div>);
 		}
 
-		return ({
-
-		});
+		return ele;
 	}
 
 	render() {
