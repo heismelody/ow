@@ -122,10 +122,11 @@ export default class App extends React.Component {
 			{/*</Card>*/}
 
 			{/*<Toggle/>*/}
-			{/*<Input/>*/}
-
+			<Input placeholder='sdfs' style={{margin: '100px'}}/>
+			<Input iconLeft='check' style={{margin: '100px'}}/>
+			<Input iconRight='close' style={{margin: '100px'}}/>
 			{/*<Tree/>*/}
-			<Rate/>
+			{/*<Rate/>*/}
 			{/*<Select options={this.state.option} multi={true}/>*/}
 			{/*<div style={{backgroundColor: '#ccc',width: '100px', height: '200px'}} onClick={this.changeOption}></div>*/}
     </div>
