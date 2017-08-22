@@ -1,6 +1,8 @@
 import React from 'react';
 import ProTypes from 'prop-types';
 
+import {SvgIcon} from '../Icon';
+
 require('./styles/Input.default.less');
 
 export default class Input extends React.Component {
@@ -10,7 +12,9 @@ export default class Input extends React.Component {
 		elementRight: ProTypes.node,
 		iconLeft: ProTypes.node,
 		iconRight: ProTypes.node,
-		placeholder: ProTypes.string
+		placeholder: ProTypes.string,
+		errorText: ProTypes.string,
+		errorStyle: ProTypes.object,
 	};
 
 	static defaultProps = {
@@ -21,21 +25,40 @@ export default class Input extends React.Component {
 		const {
 			elementLeft,
 			elementRight,
+			iconLeft,
+			iconRight,
+			iconColor,
 			placeholder,
+			errorText,
 
 			...other
 		} = this.props;
 
+		const bodyClassName = ['ow-input', (iconLeft || iconRight) && 'ow-input-group'].join(' ');
+
 		return (
 			<div
 				{...other}
-				className='ow-input'
+				className={bodyClassName}
 			>
-				<span className='ow-input-dec ow-input-left-dec'>sdf</span>
+				{
+					iconLeft
+						&&
+					<SvgIcon color={iconColor || '#ccc'} size='sm' name={iconLeft} className='ow-input-dec ow-input-left-dec'/>
+				}
 
-				<input type="text" placeholder={placeholder}/>
+				<input className='ow-input-main' type="text" placeholder={placeholder}/>
 
-				<span className='ow-input-dec ow-input-right-dec'>sdf</span>
+				{
+					errorText
+					&&
+					<p className='ow-input-error'>{errorText}</p>
+				}
+				{
+					iconRight
+						&&
+					<SvgIcon color={iconColor || '#ccc'} size='sm' name={iconRight} className='ow-input-dec ow-input-right-dec'/>
+				}
 			</div>
 		);
 	}

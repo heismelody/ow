@@ -123,8 +123,14 @@ export default class App extends React.Component {
 
 			{/*<Toggle/>*/}
 			<Input placeholder='sdfs' style={{margin: '100px'}}/>
+			<Input
+				errorText='Please input valid number'
+				placeholder='sdfs'
+				style={{margin: '100px'}}
+			/>
 			<Input iconLeft='check' style={{margin: '100px'}}/>
 			<Input iconRight='close' style={{margin: '100px'}}/>
+			<Input iconLeft='check' iconRight='close' style={{margin: '100px'}}/>
 			{/*<Tree/>*/}
 			{/*<Rate/>*/}
 			{/*<Select options={this.state.option} multi={true}/>*/}
