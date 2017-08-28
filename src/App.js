@@ -13,6 +13,7 @@ import { Select } from './component/Select';
 import { Tree } from './component/Tree';
 import { Popover } from './component/Popover';
 import { Rate } from './component/Rate';
+import { NumberInput } from './component/Input';
 
 import avat from '../tests/9329094.jpeg';
 require('./assets/theme/page.default.less');
@@ -90,7 +91,8 @@ var t = false;
 
 export default class App extends React.Component {
 	state = {
-		'option': options2
+		'option': options2,
+		'value' : 11,
 	};
 
 	changeOption = e => {
@@ -120,6 +122,16 @@ export default class App extends React.Component {
 			{/*<Card style={{height: 200}}>*/}
 			{/*<TabTest/>*/}
 			{/*</Card>*/}
+
+			<NumberInput
+				min={-8}
+				max={10}
+				value={this.state.value}
+				style={{ width: 100 }}
+				readOnly={true}
+				onChange={v => {this.setState({'value': v});}}
+				disabled={true}
+			/>
 
 			{/*<Toggle/>*/}
 			<Input placeholder='sdfs' style={{margin: '100px'}}/>
